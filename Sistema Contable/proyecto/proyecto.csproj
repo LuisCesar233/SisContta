@@ -52,6 +52,13 @@
     <Compile Include="Compras.Designer.cs">
       <DependentUpon>Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compra_sin_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compra_sin_factura.Designer.cs">
+      <DependentUpon>Compra_sin_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosCompra.cs" />
     <Compile Include="libro_diario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +87,9 @@
     </Compile>
     <EmbeddedResource Include="Compras.resx">
       <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compra_sin_factura.resx">
+      <DependentUpon>Compra_sin_factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="libro_diario.resx">
       <DependentUpon>libro_diario.cs</DependentUpon>

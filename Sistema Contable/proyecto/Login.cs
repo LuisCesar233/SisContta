@@ -19,7 +19,8 @@ namespace proyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            libro_diario l = new libro_diario();
+            l.ShowDialog();
         }
     }
 }
