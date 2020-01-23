@@ -15,6 +15,7 @@ namespace proyecto
         public Ventas()
         {
             InitializeComponent();
+            grilla(dataGridView1);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace proyecto
         string[] nombre = { "caja m/n", "IT", "Venta", "D.F IVA", "IT por pagar" };
         void VentaNormal()
         {
-
+            string ap;
             if (comboBox1.Text == "Venta")
             {
                 for (int i = 0; i < 5; i++)
@@ -77,14 +78,14 @@ namespace proyecto
                     dataGridView1[0, i].Value = nombre[i];
                     if (i < 2)
                     {
-                        dataGridView1[1, i].Value = datos[i];
-                        o.compra = datos[i];
+                        dataGridView1[1, i].Value = string.Format("{0:C2}.",datos[i]);
+                        o.compra =Convert.ToInt32( string.Format("{0:C2}.", datos[i]));
                         o.estado = true;
                     }
                     else
                     {
-                        dataGridView1[2, i].Value = datos[i];
-                        o.compra = datos[i];
+                        dataGridView1[2, i].Value = string.Format("{0:C2}.", datos[i]);
+                        o.compra = Convert.ToInt32(string.Format("{0:C2}.", datos[i]));
                         o.estado = false;
                     }
                     DatosCompra.lista.Add(o);

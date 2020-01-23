@@ -85,34 +85,34 @@ namespace proyecto
         void llenarCompra(double a, double b, double c)
         {
             DatosCompra d = new DatosCompra();
-            d.total = a;
-            d.compra = b;
-            d.iva = c;
+            d.total = Convert.ToInt32(string.Format("{0:C2}.", a));
+            d.compra = Convert.ToInt32(string.Format("{0:C2}.", b));
+            d.iva = Convert.ToInt32(string.Format("{0:C2}.", c));
             DatosCompra.lista.Add(d);
-            dataGridView1[0, 0].Value = b;
-            dataGridView1[1, 0].Value = c;
-            dataGridView1[2, 0].Value = a;
+            dataGridView1[0, 0].Value = Convert.ToInt32(string.Format("{0:C2}.",b));
+            dataGridView1[1, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", c)) ;
+            dataGridView1[2, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", a));
         }
 
         void llenarCompraLibro(double a, double b)
         {
-            dataGridView1[0, 0].Value = a;
-            dataGridView1[1, 0].Value = b;
+            dataGridView1[0, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", a));
+            dataGridView1[1, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", b));
             DatosCompra d = new DatosCompra();
-            d.total = a;
-            d.compra = b;
+            d.total = Convert.ToInt32(string.Format("{0:C2}.", a));
+            d.compra = Convert.ToInt32(string.Format("{0:C2}.", b));
             DatosCompra.lista.Add(d);
         }
 
         void llenarCompraGaso(double aux, double c, double a)
         {
-            dataGridView1[0, 0].Value = a;
-            dataGridView1[1, 0].Value = aux;
-            dataGridView1[2, 0].Value = c;
+            dataGridView1[0, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", a));
+            dataGridView1[1, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", aux));
+            dataGridView1[2, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", c));
             DatosCompra d = new DatosCompra();
-            d.total = a;
-            d.compra = aux;
-            d.iva = c;
+            d.total = Convert.ToInt32(string.Format("{0:C2}.", a));
+            d.compra = Convert.ToInt32(string.Format("{0:C2}.", aux));
+            d.iva = Convert.ToInt32(string.Format("{0:C2}.", c));
             DatosCompra.lista.Add(d);
         }
     }
