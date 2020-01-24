@@ -81,38 +81,43 @@ namespace proyecto
             dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            decimal o;
+            if (textBox1.Text.Contains(",,"))
+            {
+                o = Convert.ToDecimal(textBox1.Text = textBox1.Text.Replace(",,", ","));
+                textBox1.Text = o.ToString("N2");
+                textBox1.SelectionStart = textBox1.Text.Length - 2;
+            }
+            else if (textBox1.Text.Length > 2)
+            {
+
+                if (textBox1.SelectionStart == textBox1.Text.Length - 2)
+                {
+                    o = Convert.ToDecimal(textBox1.Text);
+                    textBox1.Text = o.ToString("N2");
+                    textBox1.SelectionStart = textBox1.Text.Length - 1;
+                }
+                else if (textBox1.SelectionStart == textBox1.Text.Length - 1)
+                {
+                    textBox1.SelectionStart = textBox1.Text.Length - 1;
+                }
+                else
+                {
+                    o = Convert.ToDecimal(textBox1.Text);
+                    textBox1.Text = o.ToString("N2");
+                    textBox1.SelectionStart = textBox1.Text.Length - 3;
+                }
+            }
+        }
+
         string[] nombre = { "compra", "C.F. IVA", "total" };
         void llenarCompra(double a, double b, double c)
         {
             DatosCompra d = new DatosCompra();
-            d.total = Convert.ToInt32(string.Format("{0:C2}.", a));
-            d.compra = Convert.ToInt32(string.Format("{0:C2}.", b));
-            d.iva = Convert.ToInt32(string.Format("{0:C2}.", c));
-            DatosCompra.lista.Add(d);
-            dataGridView1[0, 0].Value = Convert.ToInt32(string.Format("{0:C2}.",b));
-            dataGridView1[1, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", c)) ;
-            dataGridView1[2, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", a));
-        }
-
-        void llenarCompraLibro(double a, double b)
-        {
-            dataGridView1[0, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", a));
-            dataGridView1[1, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", b));
-            DatosCompra d = new DatosCompra();
-            d.total = Convert.ToInt32(string.Format("{0:C2}.", a));
-            d.compra = Convert.ToInt32(string.Format("{0:C2}.", b));
-            DatosCompra.lista.Add(d);
-        }
-
-        void llenarCompraGaso(double aux, double c, double a)
-        {
-            dataGridView1[0, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", a));
-            dataGridView1[1, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", aux));
-            dataGridView1[2, 0].Value = Convert.ToInt32(string.Format("{0:C2}.", c));
-            DatosCompra d = new DatosCompra();
-            d.total = Convert.ToInt32(string.Format("{0:C2}.", a));
-            d.compra = Convert.ToInt32(string.Format("{0:C2}.", aux));
-            d.iva = Convert.ToInt32(string.Format("{0:C2}.", c));
+            p
             DatosCompra.lista.Add(d);
         }
     }

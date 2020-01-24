@@ -92,5 +92,36 @@ namespace proyecto
                 }
             }
         }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            decimal o;
+            if (textBox1.Text.Contains(",,"))
+            {
+                o = Convert.ToDecimal(textBox1.Text = textBox1.Text.Replace(",,", ","));
+                textBox1.Text = o.ToString("N2");
+                textBox1.SelectionStart = textBox1.Text.Length - 2;
+            }
+            else if (textBox1.Text.Length > 2)
+            {
+
+                if (textBox1.SelectionStart == textBox1.Text.Length - 2)
+                {
+                    o = Convert.ToDecimal(textBox1.Text);
+                    textBox1.Text = o.ToString("N2");
+                    textBox1.SelectionStart = textBox1.Text.Length - 1;
+                }
+                else if (textBox1.SelectionStart == textBox1.Text.Length - 1)
+                {
+                    textBox1.SelectionStart = textBox1.Text.Length - 1;
+                }
+                else
+                {
+                    o = Convert.ToDecimal(textBox1.Text);
+                    textBox1.Text = o.ToString("N2");
+                    textBox1.SelectionStart = textBox1.Text.Length - 3;
+                }
+            }
+        }
     }
 }
